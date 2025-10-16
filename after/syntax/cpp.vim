@@ -41,11 +41,11 @@ if !exists('g:cpp_no_function_highlight')
 endif
 
 " Class and namespace scope
+syn match   cCustomClassScope    "::"
 if exists('g:cpp_class_scope_highlight') && g:cpp_class_scope_highlight
-    syn match   cCustomScope    "::"
     syn match   cCustomClass    "\w\+\s*::"
-                \ contains=cCustomScope
-    " hi def link cCustomClass Function
+                \ contains=cCustomClassScope
+    hi def link cCustomClass Function
 endif
 
 " Clear cppStructure and replace "class" and/or "template" with matches
@@ -341,8 +341,8 @@ hi def link cppStatement       Statement
 hi def link cppSTLfunction     Function
 hi def link cppSTLdefine       Constant
 hi def link cppSTLconstant     Constant
-" hi def link cppSTLnamespace    Constant
-hi def link cppSTLnamespace    Function
+hi def link cppSTLnamespace    Constant
+" hi def link cppSTLnamespace    Function
 hi def link cppSTLexception    Type
 hi def link cppSTLiterator     Type
 hi def link cppSTLtype         Type
