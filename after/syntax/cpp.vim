@@ -224,8 +224,10 @@ if !exists('cpp_no_cpp11')
     syntax keyword cppSTLenum
             \ memory_order future_status future_errc launch io_errc cv_status errc
 
-    syntax keyword cppSTLfunction
+    syntax keyword cppStatement
             \ duration_cast time_point_cast mem_fn const_pointer_cast dynamic_pointer_cast static_pointer_cast allocate_shared make_shared isblank generate_canonical forward_as_tuple make_tuple tie tuple_cat declval forward move move_if_noexcept
+            \ async bind1st bind2nd cref get_temporary_buffer new_handler set_new_handler swap
+            \ static_cast reinterpret_cast const_cast dynamic_cast make_pair
 
     syntax keyword cppSTLexception
             \ bad_function_call future_error regex_error system_error bad_weak_ptr bad_array_new_length
@@ -233,6 +235,8 @@ if !exists('cpp_no_cpp11')
     syntax keyword cppSTLiterator
             \ move_iterator regex_iterator regex_token_iterator const_local_iterator local_iterator
 
+    syntax keyword cppStatement
+            \ alignas alignof char16_t char32_t constexpr decltype noexcept nullptr static_assert thread_local
     " Note: ignore is also a function
     syntax match cppSTLvariable "\<ignore\>(\@!"
 endif
@@ -337,7 +341,8 @@ hi def link cppStatement       Statement
 hi def link cppSTLfunction     Function
 hi def link cppSTLdefine       Constant
 hi def link cppSTLconstant     Constant
-hi def link cppSTLnamespace    Constant
+" hi def link cppSTLnamespace    Constant
+hi def link cppSTLnamespace    Function
 hi def link cppSTLexception    Type
 hi def link cppSTLiterator     Type
 hi def link cppSTLtype         Type
